@@ -62,24 +62,4 @@ def split_documents(
     return docs_processed_unique
 
 
-if __name__ == "__main__":
-    folder_path = "/raid/shnu/wjs/agent/data"
-
-    RAW_KNOWLEDGE_BASE = []
-    for file_name in os.listdir(folder_path):
-        if file_name.endswith(".txt"):
-            file_path = os.path.join(folder_path, file_name)
-            document_id = file_name.split(".")[0]
-            with open(file_path, 'r', encoding='utf-8') as file:
-                text = file.read()
-                RAW_KNOWLEDGE_BASE.append(LangchainDocument(page_content=text, metadata={"source": document_id}))
-
-    print("Total documents:", len(RAW_KNOWLEDGE_BASE))
-
-    docs_processed = split_documents(
-    256,
-    RAW_KNOWLEDGE_BASE,
-    tokenizer_name=EMBEDDING_MODEL_NAME,
-    )
-    print("Total documents after splitting:", len(docs_processed))
     
