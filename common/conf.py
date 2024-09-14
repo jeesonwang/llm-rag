@@ -16,7 +16,7 @@ load_dotenv()
 
 # [BASE]
 TZ = pytz.timezone(os.getenv("TZ", "Asia/Shanghai"))
-
+LOG_DIR = os.getenv("LOG_DIR", "./logs")
 # [EMBEDDING MODEL]
 EMBEDDING_MODEL_NAME = os.getenv("EMBEDDING_MODEL_NAME", "BAAI/bge-large-zh-v1.5")
 
